@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國考高效上岸諮詢 ｜ 國考學姐</title>
+<meta name="description" content="專為時間有限、急需精準突破的考生設計的 1 對 1 實戰健檢。60 分鐘為你的備考狀態進行診斷，帶走切實有用的破局提點。">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+/* ===== CONSULTATION ===== */
+.chero{ padding:70px 0 30px; position:relative; }
+.chero__grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:54px; align-items:center; }
+.chero h1{ font-size:clamp(2.1rem,4.4vw,3.2rem); color:var(--forest-deep); line-height:1.4; }
+.chero h1 .em{ color:var(--coral); }
+.chero__lead{ margin-top:22px; font-size:1.14rem; color:var(--ink-soft); line-height:2; max-width:46ch; }
+.chero__lead b{ color:var(--ink); }
+.chero__meta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+.chip{
+  display:inline-flex; align-items:center; gap:9px; background:var(--card);
+  padding:12px 20px; border-radius:999px; box-shadow:var(--sh-sm); font-weight:700;
+  color:var(--forest); font-size:.96rem; border:1px solid rgba(44,42,36,.05);
+}
+.chip b{ color:var(--coral); }
+.chero__art .frame-img{ rotate:1.6deg; }
+.chero__pin{
+  position:absolute; z-index:3; background:var(--note-pink); padding:14px 18px; border-radius:7px;
+  box-shadow:var(--sh-md); font-weight:700; color:var(--ink); rotate:-5deg; right:-10px; top:-18px;
+}
+
+/* who for */
+.who{ background:var(--paper-2); }
+.who__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:42px; }
+.whocard{
+  background:var(--card); border-radius:var(--r-md); padding:30px; box-shadow:var(--sh-sm);
+  border:1px solid rgba(44,42,36,.05); border-top:5px solid var(--coral);
+}
+.whocard h3{ color:var(--forest); font-size:1.22rem; margin-bottom:10px; }
+.whocard p{ color:var(--ink-soft); font-size:1rem; }
+
+/* angles big */
+.angles2{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:42px; }
+.acard{
+  background:var(--card); border-radius:var(--r-lg); padding:34px; box-shadow:var(--sh-sm);
+  border:1px solid rgba(44,42,36,.05); display:flex; gap:22px; align-items:flex-start;
+  transition:transform .3s, box-shadow .3s;
+}
+.acard:hover{ transform:translateY(-5px); box-shadow:var(--sh-md); }
+.acard__n{ font-size:2.6rem; font-weight:900; color:var(--coral-soft); line-height:1; flex:none; width:74px; }
+.acard h3{ font-size:1.32rem; color:var(--forest); margin-bottom:8px; }
+.acard p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.85; }
+
+/* process */
+.steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:44px; counter-reset:s; }
+.step{ position:relative; }
+.step__n{
+  width:54px; height:54px; border-radius:16px; background:var(--forest); color:var(--paper-2);
+  display:grid; place-items:center; font-weight:900; font-size:1.3rem; box-shadow:var(--sh-sm); margin-bottom:18px;
+}
+.step h4{ color:var(--forest); font-size:1.16rem; margin-bottom:8px; }
+.step p{ color:var(--ink-soft); font-size:.97rem; }
+.step:not(:last-child)::after{
+  content:"→"; position:absolute; top:14px; right:-16px; color:var(--coral-soft); font-size:1.4rem; font-weight:700;
+}
+
+/* proof reuse from home (defined inline here) */
+.proof{ background:var(--forest); color:#EFEADb; border-radius:var(--r-lg); padding:54px;
+  display:grid; grid-template-columns:auto 1fr; gap:44px; align-items:center; box-shadow:var(--sh-lg); }
+.proof__av{ width:160px; height:160px; border-radius:50%; overflow:hidden; flex:none; border:5px solid rgba(255,255,255,.18); }
+.proof__av img{ width:100%; height:100%; object-fit:cover; }
+.proof q{ display:block; font-size:clamp(1.4rem,2.6vw,2rem); font-weight:900; color:#fff; line-height:1.6; quotes:none; }
+.proof p{ margin-top:18px; color:#C8CBB7; font-size:1.04rem; line-height:1.95; }
+
+/* booking */
+.book{ background:var(--paper-2); }
+.book__grid{ display:grid; grid-template-columns:.95fr 1.05fr; gap:50px; align-items:start; }
+.book__plan{ background:var(--card); border-radius:var(--r-lg); box-shadow:var(--sh-md); overflow:hidden; position:sticky; top:96px; }
+.book__plan .top{ background:var(--forest); color:#EFEAD8; padding:34px; }
+.book__plan .top .eyebrow{ color:var(--gold); } .book__plan .top .eyebrow::before{ background:var(--gold); }
+.book__plan .top h3{ color:#fff; font-size:1.5rem; margin:10px 0 4px; }
+.book__plan .top .price{ font-size:2.4rem; font-weight:900; color:#fff; margin-top:8px; }
+.book__plan .top .price small{ font-size:.96rem; color:#C8CBB7; font-weight:500; }
+.book__plan .rows{ padding:28px 34px 34px; }
+.book__plan .row{ display:flex; gap:14px; padding:14px 0; border-bottom:1px dashed rgba(44,42,36,.16); }
+.book__plan .row:last-child{ border:0; }
+.book__plan .row .k{ flex:none; width:88px; font-weight:900; color:var(--forest); }
+.book__plan .row .v{ color:var(--ink-soft); font-size:.97rem; line-height:1.7; }
+
+.form{ background:var(--card); border-radius:var(--r-lg); box-shadow:var(--sh-md); padding:40px; border:1px solid rgba(44,42,36,.05); }
+.form h3{ color:var(--forest); font-size:1.5rem; }
+.form > p{ color:var(--ink-soft); margin:10px 0 26px; }
+.field{ margin-bottom:20px; }
+.field label{ display:block; font-weight:700; color:var(--ink); margin-bottom:8px; font-size:.97rem; }
+.field label span{ color:var(--coral); }
+.field input, .field select, .field textarea{
+  width:100%; padding:14px 18px; border-radius:14px; border:1.5px solid rgba(44,42,36,.16);
+  font-family:var(--font); font-size:1rem; background:var(--paper-2); color:var(--ink); transition:border .2s;
+}
+.field textarea{ min-height:120px; resize:vertical; }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--coral); background:#fff; }
+.field--row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form__note{
+  background:var(--note-cream); border-radius:12px; padding:14px 18px; font-size:.9rem; color:var(--ink-soft);
+  display:flex; gap:10px; margin-bottom:22px;
+}
+.form button[type=submit]{ width:100%; justify-content:center; padding:18px; font-size:1.06rem; }
+
+@media (max-width:980px){
+  .chero__grid{ grid-template-columns:1fr; gap:38px; }
+  .chero__art{ max-width:480px; }
+  .who__grid{ grid-template-columns:1fr; }
+  .angles2{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns:1fr 1fr; gap:30px 22px; }
+  .step:not(:last-child)::after{ display:none; }
+  .proof{ grid-template-columns:1fr; text-align:center; padding:40px 30px; }
+  .proof__av{ margin:0 auto; }
+  .book__grid{ grid-template-columns:1fr; gap:32px; }
+  .book__plan{ position:static; }
+}
+@media (max-width:560px){ .field--row{ grid-template-columns:1fr; } .steps{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html"><span class="mark">姐</span><span>國考學姐<small>穩定上岸指南</small></span></a>
+    <button class="nav__burger" aria-label="選單" id="burger"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="navlinks">
+      <a href="index.html">首頁</a>
+      <a href="consultation.html" class="is-active">國考高效上岸諮詢</a>
+      <a href="guide.html">穩定上岸指南</a>
+      <a class="btn btn--coral nav__cta" href="#booking">預約諮詢</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="chero ruled">
+  <div class="wrap chero__grid">
+    <div class="reveal in">
+      <span class="eyebrow">1 on 1 Consultation</span>
+      <h1 style="margin-top:18px;">國考高效上岸諮詢<br>指向成功考取的<span class="em">捷徑</span></h1>
+      <p class="chero__lead">一場專為「時間有限、急需精準突破」的考生設計的 <b>1 對 1 實戰健檢</b>。讓國考學姐用多次短期上榜的經驗，<b>在 60 分鐘內為你的備考狀態進行診斷，帶走切實有用的破局提點。</b></p>
+      <div class="chero__meta">
+        <span class="chip">⏱ <b>60</b> 分鐘線上一對一</span>
+        <span class="chip">💰 NT$ <b>2,800</b></span>
+        <span class="chip">🎯 名額極其有限</span>
+      </div>
+      <a class="btn btn--coral" style="margin-top:30px;" href="#booking">立即預約諮詢 <span class="arr">→</span></a>
+    </div>
+    <div class="chero__art reveal in d2">
+      <div class="chero__pin">急需精準突破？</div>
+      <div class="frame-img"><img src="assets/hero-banner.png" alt="國考學姐諮詢視覺"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO FOR -->
+<section class="section who">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">For Whom ・ 適合對象</span>
+      <h2>如果你正卡在這些狀態，這 60 分鐘是為你準備的</h2>
+    </div>
+    <div class="who__grid">
+      <div class="whocard reveal d1"><h3>時間極度破碎的兼職考生</h3><p>白天上班、晚上備考，零碎時間怎麼配置才不浪費，需要有人幫你重新盤點。</p></div>
+      <div class="whocard reveal d2"><h3>分數卡關的重考生</h3><p>已經很努力卻總是差幾分落榜，需要外部視角揪出看不見的盲點。</p></div>
+      <div class="whocard reveal d3"><h3>很心慌的考生</h3><p>不確定自己是否走在對的軌道上，焦慮多過行動，想要一份踏實的方向確認。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLES -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Diagnosis ・ 健檢角度</span>
+      <h2>這 1 小時的深度對談，會從這些角度為你找出策略</h2>
+      <p>翻轉無效死背，把有限時間投到真正會得分的地方。</p>
+    </div>
+    <div class="angles2">
+      <div class="acard reveal d1"><div class="acard__n">01</div><div><h3>歷次成績分析</h3><p>從考試表現找出強弱科盲點及上榜策略，看清楚分數真正卡在哪裡。</p></div></div>
+      <div class="acard reveal d2"><div class="acard__n">02</div><div><h3>讀書計畫與時間安排</h3><p>梳理日常作息，重新找出高投報率的時間配置，把每一分鐘用在刀口上。</p></div></div>
+      <div class="acard reveal d1"><div class="acard__n">03</div><div><h3>讀書方法與記憶術升級</h3><p>翻轉無效死背，提升閱讀與吸收效率，建立可重複執行的輸入方法。</p></div></div>
+      <div class="acard reveal d2"><div class="acard__n">04</div><div><h3>答題技巧與申論微調</h3><p>提供答題能力提升方法，補足上榜關鍵的 1、2 分，把會的東西穩穩變成分數。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section--tight">
+  <div class="wrap">
+    <div class="proof reveal">
+      <div class="proof__av"><img src="assets/avatar.jpg" alt="國考學姐"></div>
+      <blockquote style="margin:0;">
+        <q>我不比你聰明，<br>我只是掌握了上榜的底層邏輯。</q>
+        <p>曾身為非本科系考生的我，深刻了解盲目苦讀的無助。每次能幸運在短時間內上岸，靠的不是天賦，而是正確、可重複穩定執行的「輸入與輸出方法」——一套能被理解、且能實際落地應用的備考邏輯。</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section who">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">How it works ・ 諮詢流程</span>
+      <h2>四個步驟，從報名到帶走破局提點</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1"><div class="step__n">1</div><h4>填寫備考狀態表單</h4><p>送出下方表單，讓學姐先掌握你的考科與卡關處。</p></div>
+      <div class="step reveal d2"><div class="step__n">2</div><h4>確認時段與付款</h4><p>收到回覆後確認諮詢時段，完成費用後即排定。</p></div>
+      <div class="step reveal d3"><div class="step__n">3</div><h4>60 分鐘深度對談</h4><p>線上一對一，針對你的狀態逐項診斷與討論。</p></div>
+      <div class="step reveal d4"><div class="step__n">4</div><h4>帶走破局提點</h4><p>整理出可立即執行的備考策略，回去就能落地。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section book" id="booking">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Booking ・ 立即預約</span>
+      <h2>填寫備考狀態表單，開啟一對一深度諮詢</h2>
+      <p>與其等放榜那天看著分數遺憾、再次消耗 1～2 年，不如現在就跨出精準止損的第一步。</p>
+    </div>
+    <div class="book__grid">
+      <aside class="book__plan reveal d1">
+        <div class="top">
+          <span class="eyebrow">唯一高價值方案</span>
+          <h3>一對一・國考高效上岸諮詢</h3>
+          <div class="price">NT$2,800 <small>／ 60 分鐘</small></div>
+        </div>
+        <div class="rows">
+          <div class="row"><div class="k">適合對象</div><div class="v">時間破碎的兼職考生、分數卡關的重考生、心慌的考生。</div></div>
+          <div class="row"><div class="k">諮詢時間</div><div class="v">線上一對一深度對談 60 分鐘。</div></div>
+          <div class="row"><div class="k">諮詢內容</div><div class="v">與準備考試相關的任何問題：讀書計畫、時間安排、讀書方法、答題技巧、歷次成績分析等。</div></div>
+          <div class="row"><div class="k">名額</div><div class="v">為保證每次諮詢品質，釋出時段極其有限。</div></div>
+        </div>
+      </aside>
+
+      <form class="form reveal d2" onsubmit="this.querySelector('.done').style.display='flex'; return false;">
+        <h3>備考狀態表單</h3>
+        <p>填得越具體，學姐越能在 60 分鐘裡幫你打到痛點。</p>
+        <div class="form__note">📮 表單送出後會接上正式預約系統，目前為示意版型，學姐將親自回覆你。</div>
+        <div class="field--row">
+          <div class="field"><label>稱呼 <span>*</span></label><input type="text" placeholder="怎麼稱呼你" required></div>
+          <div class="field"><label>聯絡方式（Email / LINE）<span>*</span></label><input type="text" placeholder="方便回覆你的管道" required></div>
+        </div>
+        <div class="field--row">
+          <div class="field"><label>報考類科</label><input type="text" placeholder="例：高考一般行政"></div>
+          <div class="field"><label>已報考次數</label>
+            <select><option>第 1 次</option><option>第 2 次</option><option>第 3 次</option><option>4 次以上</option></select>
+          </div>
+        </div>
+        <div class="field"><label>身分狀態</label>
+          <select><option>全職備考</option><option>在職兼職備考</option><option>學生</option><option>其他</option></select>
+        </div>
+        <div class="field"><label>目前最想解決的問題 <span>*</span></label>
+          <textarea placeholder="例：申論總是差幾分、讀書計畫排不出來、不知道自己有沒有在對的軌道上⋯⋯" required></textarea>
+        </div>
+        <button class="btn btn--coral" type="submit">送出表單・預約一對一諮詢 <span class="arr">→</span></button>
+        <div class="done" style="display:none; margin-top:18px; gap:10px; align-items:center; background:var(--note-green); padding:16px 20px; border-radius:14px; color:var(--forest); font-weight:700;">✓ 已收到！正式預約系統接上後，學姐會親自與你聯繫。</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="brand" style="color:#fff;"><span class="mark">姐</span><span style="color:#fff;">國考學姐<small>穩定上岸指南</small></span></div>
+        <p style="margin-top:18px;">停止無效努力，穩穩走向上榜的個人經驗分享。非本科系、全自學、多次報考 0 落榜，陪你打造穩定上榜的體質。</p>
+        <div class="soc"><a href="#"><span>💬</span> LINE 官方帳號</a><a href="#"><span>＠</span> Threads</a></div>
+      </div>
+      <div><h4>網站導覽</h4><div class="footer__links"><a href="index.html">首頁</a><a href="consultation.html">國考高效上岸諮詢</a><a href="guide.html">穩定上岸指南</a><a href="#booking">預約諮詢</a></div></div>
+      <div><h4>條款與隱私</h4><div class="footer__links"><a href="terms.html">服務條款</a><a href="privacy.html">隱私權政策</a></div></div>
+    </div>
+    <div class="footer__base"><span>© 2026 國考學姐 ・ 穩定上岸指南. All rights reserved.</span><span>停止無效努力，穩穩走向上榜。</span></div>
+  </div>
+</footer>
+
+<script>
+const burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+burger&&burger.addEventListener('click',()=>links.classList.toggle('open'));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

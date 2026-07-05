@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文章｜國考學姐 Zora</title>
+<meta name="description" content="國考學姐 Zora 的穩定上岸系列文章。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="國考學姐 Zora">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F0E2; --card:#FFFCF5; --salmon:#F2A78F;
+    --coral:#CB6440; --coral-deep:#B5542F; --coral-text:#D26A3E;
+    --green:#46603E; --ink:#4A4138; --ink-soft:#6F6357; --line:#E2D6C2;
+    --serif:"Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC",system-ui,sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans);
+    line-height:1.95; letter-spacing:.02em; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--coral-deep); }
+
+  /* top bar */
+  .topbar{ background:var(--cream); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; }
+  .topbar__in{ max-width:1180px; margin:0 auto; padding:14px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .brand{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand__mark{ width:34px; height:34px; border-radius:50%; background:var(--green); color:#fff;
+    font-family:var(--serif); font-weight:700; display:grid; place-items:center; font-size:1.05rem; }
+  .brand__logo{ height:26px; width:auto; display:block; }
+  .topbar__back{ font-size:.95rem; font-weight:700; color:var(--green); text-decoration:none; white-space:nowrap; }
+  .topbar__back:hover{ color:var(--coral-deep); }
+
+  /* article */
+  .article{ max-width:760px; margin:0 auto; padding:54px 26px 90px; }
+  .article__tag{ display:inline-block; white-space:nowrap; font-size:.78rem; font-weight:700; letter-spacing:.12em;
+    color:var(--coral-text); background:#F6D9C9; padding:6px 14px; border-radius:999px; }
+  .article__title{ font-family:var(--serif); color:var(--green); font-weight:700;
+    font-size:clamp(1.7rem,4.2vw,2.5rem); line-height:1.5; margin:18px 0 12px; text-wrap:pretty; }
+  .article__date{ color:var(--ink-soft); font-size:.92rem; margin:0 0 30px; }
+  .article__cover{ width:100%; border-radius:20px; margin:0 0 38px; display:block;
+    box-shadow:0 24px 46px -28px rgba(120,74,46,.45); }
+
+  /* rich body */
+  .body{ font-size:1.08rem; }
+  .body p{ margin:0 0 22px; }
+  .body h2{ font-family:var(--serif); color:var(--green); font-size:1.6rem; line-height:1.5; margin:42px 0 14px; }
+  .body h3{ font-family:var(--serif); color:var(--green); font-size:1.3rem; line-height:1.5; margin:34px 0 12px; }
+  .body h4{ color:var(--coral-text); font-size:1.12rem; font-weight:700; margin:28px 0 10px; }
+  .body strong{ color:var(--green); font-weight:700; }
+  .body em{ font-style:italic; }
+  .body ul, .body ol{ margin:0 0 22px; padding-left:1.4em; }
+  .body li{ margin:0 0 10px; padding-left:.2em; }
+  .body ul li{ list-style:none; position:relative; }
+  .body ul li::before{ content:""; position:absolute; left:-1.1em; top:.78em; width:8px; height:8px;
+    border-radius:50%; background:var(--coral); }
+  .body blockquote{ margin:28px 0; padding:16px 22px; border-left:4px solid var(--salmon);
+    background:var(--card); border-radius:0 14px 14px 0; color:var(--ink); }
+  .body blockquote p:last-child{ margin:0; }
+  .body img{ width:100%; border-radius:16px; margin:24px 0; display:block; }
+  .body code{ font-family:ui-monospace,Menlo,monospace; background:#F0E7D5; color:var(--coral-deep);
+    padding:.1em .4em; border-radius:6px; font-size:.92em; }
+  .body a{ color:var(--coral-deep); text-decoration:underline; }
+  .body hr{ border:0; border-top:1px solid var(--line); margin:36px 0; }
+
+  /* states */
+  .state{ max-width:600px; margin:80px auto; text-align:center; padding:0 26px; color:var(--ink-soft); }
+  .state h1{ font-family:var(--serif); color:var(--green); font-size:1.5rem; margin:0 0 12px; }
+  .state a{ display:inline-block; margin-top:18px; background:var(--coral); color:#fff; text-decoration:none;
+    font-weight:700; padding:12px 26px; border-radius:999px; }
+  .skel{ animation:pulse 1.3s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:.5; } 50%{ opacity:.85; } }
+
+  .backlink{ display:block; max-width:760px; margin:0 auto; padding:0 26px 80px; }
+  .backlink a{ color:var(--green); font-weight:700; text-decoration:none; }
+  .backlink a:hover{ color:var(--coral-deep); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="index.html"><span class="brand__mark">姐</span><img src="assets/logo.webp" alt="國考學姐" class="brand__logo"></a>
+    <a class="topbar__back" href="guide.html">← 回文章列表</a>
+  </div>
+</header>
+
+<main id="main">
+  <div class="state skel" id="loading">
+    <h1>文章載入中…</h1>
+    <p>正在從後台取得內容</p>
+  </div>
+</main>
+
+<script>
+/* ===== 與首頁相同的 Sanity 設定 ===== */
+var SANITY = {
+  projectId : 'j8qrcd98',
+  dataset   : 'production',
+  apiVersion: '2024-01-01'
+};
+var SITE = 'https://www.zoraexam.com';  // 你的正式網域（結尾不加斜線）
+
+(function(){
+  var main = document.getElementById('main');
+
+  function esc(s){ return String(s==null?'':s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function getParam(name){
+    var m = new RegExp('[?&]'+name+'=([^&]+)').exec(location.search);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function showState(title, msg){
+    main.innerHTML = '<div class="state"><h1>'+esc(title)+'</h1><p>'+esc(msg)+'</p>'
+      + '<a href="guide.html">回文章列表</a></div>';
+  }
+
+  /* ---- Portable Text → HTML ---- */
+  function renderSpans(children, markDefs){
+    markDefs = markDefs || [];
+    return (children||[]).map(function(ch){
+      if(ch._type !== 'span'){ return ''; }
+      var html = esc(ch.text).replace(/\n/g,'<br>');
+      (ch.marks||[]).forEach(function(m){
+        if(m==='strong'){ html = '<strong>'+html+'</strong>'; }
+        else if(m==='em'){ html = '<em>'+html+'</em>'; }
+        else if(m==='underline'){ html = '<u>'+html+'</u>'; }
+        else if(m==='code'){ html = '<code>'+html+'</code>'; }
+        else {
+          var def = markDefs.filter(function(d){ return d._key===m; })[0];
+          if(def && def._type==='link' && def.href){
+            html = '<a href="'+esc(def.href)+'" target="_blank" rel="noopener">'+html+'</a>';
+          }
+        }
+      });
+      return html;
+    }).join('');
+  }
+
+  function renderBody(blocks){
+    var out = [], list = null, listType = null;
+    function flush(){ if(list){ out.push('<'+listType+'>'+list.join('')+'</'+listType+'>'); list=null; listType=null; } }
+
+    (blocks||[]).forEach(function(b){
+      if(b._type === 'image' && b.url){
+        flush();
+        out.push('<img src="'+esc(b.url)+'" alt="'+esc(b.alt||'')+'">');
+        return;
+      }
+      if(b._type !== 'block'){ return; }
+      var inner = renderSpans(b.children, b.markDefs);
+
+      if(b.listItem){
+        var t = (b.listItem==='number') ? 'ol' : 'ul';
+        if(listType !== t){ flush(); listType = t; list = []; }
+        list.push('<li>'+inner+'</li>');
+        return;
+      }
+      flush();
+      var style = b.style || 'normal';
+      if(style==='h1'||style==='h2'){ out.push('<h2>'+inner+'</h2>'); }
+      else if(style==='h3'){ out.push('<h3>'+inner+'</h3>'); }
+      else if(style==='h4'){ out.push('<h4>'+inner+'</h4>'); }
+      else if(style==='blockquote'){ out.push('<blockquote><p>'+inner+'</p></blockquote>'); }
+      else { out.push('<p>'+inner+'</p>'); }
+    });
+    flush();
+    return out.join('');
+  }
+
+  function fmtDate(iso){
+    if(!iso){ return ''; }
+    var d = new Date(iso);
+    if(isNaN(d)){ return ''; }
+    return d.getFullYear()+' 年 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日';
+  }
+
+  function clip(t,n){ t=String(t||'').replace(/\s+/g,' ').trim(); return t.length>n ? t.slice(0,n)+'…' : t; }
+
+  function upsertMeta(attr, key, content){
+    if(!content){ return; }
+    var el = document.head.querySelector('meta['+attr+'="'+key+'"]');
+    if(!el){ el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+    el.setAttribute('content', content);
+  }
+  function setCanonical(url){
+    var el = document.head.querySelector('link[rel="canonical"]');
+    if(!el){ el = document.createElement('link'); el.setAttribute('rel','canonical'); document.head.appendChild(el); }
+    el.setAttribute('href', url);
+  }
+  function setSeo(post){
+    var desc = clip(post.excerpt || post.title, 155);
+    var canonical = SITE + location.pathname + location.search;
+    upsertMeta('name','description', desc);
+    upsertMeta('property','og:type','article');
+    upsertMeta('property','og:title', post.title);
+    upsertMeta('property','og:description', desc);
+    upsertMeta('property','og:url', canonical);
+    if(post.cover){ upsertMeta('property','og:image', post.cover); }
+    upsertMeta('name','twitter:card', post.cover ? 'summary_large_image' : 'summary');
+    upsertMeta('name','twitter:title', post.title);
+    upsertMeta('name','twitter:description', desc);
+    if(post.cover){ upsertMeta('name','twitter:image', post.cover); }
+    setCanonical(canonical);
+    var ld = {
+      '@context':'https://schema.org','@type':'Article',
+      'headline': post.title,
+      'description': desc,
+      'image': post.cover ? [post.cover] : undefined,
+      'datePublished': post.publishedAt || undefined,
+      'author': {'@type':'Person','name':'國考學姐 Zora'},
+      'publisher': {'@type':'Organization','name':'國考學姐 Zora'},
+      'mainEntityOfPage': {'@type':'WebPage','@id': canonical}
+    };
+    var s = document.getElementById('ld-json');
+    if(!s){ s = document.createElement('script'); s.id='ld-json'; s.type='application/ld+json'; document.head.appendChild(s); }
+    s.textContent = JSON.stringify(ld);
+  }
+
+  function render(post){
+    document.title = (post.title||'文章') + '｜國考學姐 Zora';
+    var html = '<article class="article">';
+    if(post.tag){ html += '<span class="article__tag">'+esc(post.tag)+'</span>'; }
+    html += '<h1 class="article__title">'+esc(post.title||'')+'</h1>';
+    if(post.publishedAt){ html += '<p class="article__date">'+esc(fmtDate(post.publishedAt))+'</p>'; }
+    if(post.cover){ html += '<img class="article__cover" src="'+esc(post.cover)+'" alt="">'; }
+    html += '<div class="body">'+renderBody(post.body)+'</div>';
+    html += '</article>';
+    html += '<div class="backlink"><a href="guide.html">← 看更多穩定上岸系列文章</a></div>';
+    main.innerHTML = html;
+    setSeo(post);
+  }
+
+  /* ---- fetch ---- */
+  var slug = getParam('slug');
+  var id   = getParam('id');
+  if(!slug && !id){ showState('找不到文章', '網址缺少文章代號'); return; }
+
+  if(!SANITY.projectId || SANITY.projectId === 'YOUR_PROJECT_ID'){
+    showState('尚未設定', '請先在文章頁填入 Sanity Project ID'); return;
+  }
+
+  var match = slug ? 'slug.current=="'+slug.replace(/"/g,'')+'"' : '_id=="'+id.replace(/"/g,'')+'"';
+  var query = '*[_type=="post" && '+match+'][0]{'
+            + 'title,publishedAt,'
+            + '"tag":coalesce(category, categories[0]->title),'
+            + '"cover":mainImage.asset->url,'
+            + '"excerpt":pt::text(body),'
+            + 'body[]{...,"url":asset->url}'
+            + '}';
+  var url = 'https://'+SANITY.projectId+'.apicdn.sanity.io/v'+SANITY.apiVersion
+          + '/data/query/'+SANITY.dataset+'?query='+encodeURIComponent(query);
+
+  fetch(url)
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(res && res.result){ render(res.result); }
+      else { showState('找不到這篇文章', '它可能尚未發佈，或已被移除'); }
+    })
+    .catch(function(e){
+      console.error(e);
+      showState('載入失敗', '請稍後再試，或確認網路與 CORS 設定');
+    });
+})();
+</script>
+
+</body>
+</html>
