@@ -70,6 +70,7 @@ html[data-palette="green"]{
 /* 按鈕漸層隨主題（覆寫 home.css 的珊瑚漸層）*/
 .btn{ background:var(--btn-grad); }
 .btn:hover{ background:var(--btn-grad-h); }
+.brand__text{ font-family:var(--serif); font-weight:700; font-size:1.5rem; color:var(--green); letter-spacing:.02em; }
 
 /* ===== 導覽列：只保留購物車圖示 ===== */
 .nav__cart{
@@ -339,7 +340,7 @@ html[data-palette="green"]{
 <!-- NAV -->
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="index.html"><span class="brand__mark">姐</span><img src="assets/logo.webp" alt="國考學姐" class="brand__logo brand__logo--full"><img src="assets/logo-text.png" alt="國考學" class="brand__logo brand__logo--text"></a>
+    <a class="brand" href="index.html"><span class="brand__text">國考學姐</span></a>
     <nav class="links" id="links">
       <a class="nav__cart" href="checkout.html" aria-label="前往下單頁">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
