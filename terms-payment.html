@@ -30,19 +30,25 @@
 .callout strong{ color:var(--forest); }
 .updated{ display:inline-flex; gap:8px; align-items:center; background:var(--card); padding:8px 16px; border-radius:999px; box-shadow:var(--sh-sm); font-size:.88rem; font-weight:600; color:var(--ink-soft); }
 @media (max-width:880px){ .legal{ grid-template-columns:1fr; gap:24px; } .toc{ position:static; } .toc ol{ grid-auto-flow:column; grid-auto-columns:max-content; overflow-x:auto; } }
+.brand__text{ font-weight:900; font-size:1.12rem; color:var(--forest); letter-spacing:.02em; }
+.nav__cart{
+  flex:none; display:grid; place-items:center; width:44px; height:44px; border-radius:50%;
+  background:var(--coral); color:#fff; transition:transform .2s, background .2s;
+}
+.nav__cart:hover{ transform:translateY(-2px) scale(1.05); background:var(--forest); }
+.nav__cart svg{ width:20px; height:20px; }
+.nav .links{ display:flex; align-items:center; }
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="index.html"><span class="mark">姐</span><span>國考學姐<small>穩定上岸指南</small></span></a>
-    <button class="nav__burger" aria-label="選單" id="burger"><span></span><span></span><span></span></button>
-    <nav class="nav__links" id="navlinks">
-      <a href="index.html">首頁</a>
-      <a href="consultation.html">國考高效上岸諮詢</a>
-      <a href="guide.html">穩定上岸指南</a>
-      <a class="btn btn--coral nav__cta" href="consultation.html#booking">預約諮詢</a>
+    <a class="brand" href="coach1.html"><span class="brand__text">國考學姐</span></a>
+    <nav class="links" id="links">
+      <a class="nav__cart" href="checkout.html" aria-label="前往下單頁">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -154,8 +160,8 @@
         <p style="margin-top:18px;">停止無效努力，穩穩走向上榜的個人經驗分享。非本科系、全自學、多次報考 0 落榜，陪你打造穩定上榜的體質。</p>
         <div class="soc"><a href="#"><span>💬</span> LINE 官方帳號</a><a href="#"><span>＠</span> Threads</a></div>
       </div>
-      <div><h4>網站導覽</h4><div class="footer__links"><a href="index.html">首頁</a><a href="consultation.html">國考高效上岸諮詢</a><a href="guide.html">穩定上岸指南</a><a href="consultation.html#booking">預約諮詢</a></div></div>
-      <div><h4>條款與隱私</h4><div class="footer__links"><a href="terms.html">服務條款</a><a href="privacy.html">隱私權政策</a></div></div>
+      <div><h4>網站導覽</h4><div class="footer__links"><a href="coach1.html">加入陪跑計畫</a><a href="checkout.html">前往下單</a></div></div>
+      <div><h4>條款與隱私</h4><div class="footer__links"><a href="terms-payment.html">服務條款</a><a href="privacy-payment.html">隱私權政策</a><a href="refund-policy-payment.html">退費政策</a></div></div>
     </div>
     <div class="footer__base"><span>© 2026 國考學姐 ・ 穩定上岸指南. All rights reserved.</span><span>停止無效努力，穩穩走向上榜。</span></div>
   </div>
@@ -163,8 +169,6 @@
 
 <script>
 // toc active
-const burger=document.getElementById('burger'), links=document.getElementById('navlinks');
-burger&&burger.addEventListener('click',()=>links.classList.toggle('open'));
 const tocLinks=[...document.querySelectorAll('.toc a')], secs=[...document.querySelectorAll('.doc section')];
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id; tocLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));}})},{rootMargin:'-20% 0px -70% 0px'});
 secs.forEach(s=>io.observe(s));

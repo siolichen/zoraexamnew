@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanity 串接與寫文章教學｜國考學姐 Zora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F0E2; --card:#FFFCF5; --salmon:#F2A78F;
+    --coral:#CB6440; --coral-deep:#B5542F; --coral-text:#D26A3E;
+    --green:#46603E; --ink:#4A4138; --ink-soft:#6F6357; --line:#E2D6C2;
+    --serif:"Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC",system-ui,sans-serif;
+    --sh-md:0 24px 46px -28px rgba(120,74,46,.45);
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans);
+    line-height:1.95; letter-spacing:.02em; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 26px; }
+  a{ color:var(--coral-deep); }
+  h1,h2,h3,h4{ margin:0; font-family:var(--serif); color:var(--green); line-height:1.5; }
+  code{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; background:#F0E7D5; color:var(--coral-deep);
+    padding:.12em .45em; border-radius:6px; font-size:.92em; word-break:break-all; }
+  pre{ background:#2C2A26; color:#F3ECDD; border-radius:14px; padding:18px 20px; overflow:auto;
+    font-family:ui-monospace,Menlo,monospace; font-size:.86rem; line-height:1.7; }
+  pre .c{ color:#A99B82; }
+
+  header.top{ background:var(--salmon); padding:62px 0 56px; }
+  header.top .eyebrow{ font-size:.82rem; font-weight:700; letter-spacing:.3em; color:#fff; opacity:.9; }
+  header.top h1{ color:#43331f; font-size:clamp(1.8rem,4.4vw,2.7rem); margin:14px 0 12px; }
+  header.top p{ margin:0; color:#5c4733; max-width:660px; font-weight:500; }
+
+  main{ padding:50px 0 90px; }
+  .lead{ font-size:1.05rem; color:var(--ink-soft); margin-bottom:18px; }
+
+  .stepcard{ background:var(--card); border:1px solid var(--line); border-radius:24px;
+    padding:30px 32px; box-shadow:var(--sh-md); margin-bottom:22px; }
+  .badge{ display:inline-flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .badge .num{ width:42px; height:42px; border-radius:50%; flex:none; display:grid; place-items:center;
+    font-family:var(--serif); font-weight:700; font-size:1.3rem; color:#fff;
+    background:linear-gradient(140deg,#EB9163,#CB6440); box-shadow:0 4px 9px -2px rgba(168,68,30,.5); }
+  .badge h2{ font-size:1.42rem; }
+  ol.steps, ul.plain{ margin:0; padding-left:0; list-style:none; }
+  ol.steps{ counter-reset:s; }
+  ol.steps li{ counter-increment:s; position:relative; padding:0 0 16px 42px; }
+  ol.steps li::before{ content:counter(s); position:absolute; left:0; top:1px;
+    width:27px; height:27px; border-radius:50%; background:var(--green); color:#fff;
+    font-size:.85rem; font-weight:700; display:grid; place-items:center; font-family:var(--sans); }
+  ol.steps li:last-child{ padding-bottom:0; }
+  ul.plain li{ position:relative; padding:0 0 10px 26px; }
+  ul.plain li::before{ content:""; position:absolute; left:4px; top:.7em; width:9px; height:9px;
+    border-radius:50%; background:var(--coral); }
+  b{ color:var(--green); }
+  .callout{ background:#FBF1D9; border:1px solid #ECD8A6; border-radius:16px; padding:15px 20px;
+    font-size:.94rem; color:#6b5828; margin-top:14px; }
+  .callout strong{ color:#9a6a16; }
+  .warn{ background:#FBE3D6; border-color:#EDB99C; color:#8c4a2b; }
+  .warn strong{ color:#A2441C; }
+  .foot{ margin-top:48px; text-align:center; color:var(--ink-soft); font-size:.9rem; }
+  .kv{ font-size:.92rem; color:var(--ink-soft); margin:6px 0 0; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">SANITY · HEADLESS CMS</div>
+    <h1>把「穩定上岸系列文章」接上 Sanity</h1>
+    <p>你已經建好 Sanity 專案，接下來分兩件事：① 設定好結構與連線（一次性）② 之後每次在 Sanity 後台寫文章，首頁三個方塊就會自動更新。照著做，大約 20 分鐘完成。</p>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <p class="lead">運作原理：你在 Sanity 後台寫文章 → 首頁的 JavaScript 會去 Sanity 的 API 抓最新 3 篇 → 自動長出卡片。網站本身不用每次改程式。</p>
+  <p class="lead">我已經把首頁 <code>index.html</code> 的文章區塊接好了，<b>你只剩下 3 件事要做：建立文章結構、開放連線權限(CORS)、把你的 Project ID 填進去。</b></p>
+
+  <!-- 1 -->
+  <div class="stepcard">
+    <div class="badge"><span class="num">1</span><h2>在 Sanity 建立「文章」結構</h2></div>
+    <p class="kv">讓後台有「標題／分類／封面／內文」這些欄位可以填。</p>
+    <ol class="steps">
+      <li>打開你電腦上的 Sanity 專案資料夾，找到 <code>schemaTypes</code>（有的範本叫 <code>schemas</code>）。</li>
+      <li>把本包的 <code>postType.js</code> 複製進這個資料夾。</li>
+      <li>打開同資料夾的 <code>index.js</code>，把 <code>postType</code> 加進去（可參考本包的 <code>schemaTypes-index.js</code> 範例）。</li>
+      <li>存檔後，在專案資料夾的終端機執行 <code>npm run dev</code>，瀏覽器打開 <code>http://localhost:3333</code>，左側就會出現「文章」。</li>
+    </ol>
+    <div class="callout"><strong>還沒裝好 Studio？</strong>在專案資料夾終端機先跑一次 <code>npm install</code>，再 <code>npm run dev</code> 即可。要讓別人也能上後台，之後用 <code>npx sanity deploy</code> 部署成線上網址。</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="stepcard">
+    <div class="badge"><span class="num">2</span><h2>開放網站讀取權限（CORS）</h2></div>
+    <p class="kv">不設這步，網站會抓不到資料（瀏覽器會擋）。</p>
+    <ol class="steps">
+      <li>到 <code>sanity.io/manage</code> → 點你的專案 → 左側 <b>API</b>。</li>
+      <li>找到 <b>CORS origins</b> → <b>Add CORS origin</b>。</li>
+      <li>網址填你的網站網域，例如 <code>https://你的網域.com</code>；測試時也加一個 <code>http://localhost:3000</code>。<b>Allow credentials 不用勾。</b></li>
+      <li>同一頁把 Dataset 設成 <b>Public</b>（公開讀取），文章才能被前台讀到。</li>
+    </ol>
+    <div class="callout warn"><strong>注意：</strong>Public 只代表「已發佈的文章可被讀取」，草稿不會外流；要修改／刪除仍需登入後台，很安全。</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="stepcard">
+    <div class="badge"><span class="num">3</span><h2>把 Project ID 填進首頁</h2></div>
+    <p class="kv">告訴網站要去「哪一個」Sanity 專案抓資料。</p>
+    <ol class="steps">
+      <li>在 <code>sanity.io/manage</code> 專案首頁就能看到 <b>Project ID</b>（一串英數字）。</li>
+      <li>用編輯器打開 <code>index.html</code>，搜尋 <code>YOUR_PROJECT_ID</code>。</li>
+      <li>把它換成你的 Project ID，存檔。<code>dataset</code> 通常維持 <code>production</code> 不用改。</li>
+    </ol>
+    <pre><span class="c">// index.html 裡這一段</span>
+var SANITY = {
+  projectId : '<b style="color:#F7C9B8">填你的 Project ID</b>',
+  dataset   : 'production',
+  apiVersion: '2024-01-01'
+};</pre>
+    <div class="callout"><strong>填好就完成了。</strong>只要 Sanity 裡有已發佈的文章，重新整理首頁，三個方塊就會自動換成你的最新文章；還沒有文章時，會維持現在的示意卡片，畫面不會壞。</div>
+  </div>
+
+  <!-- WRITE -->
+  <div class="stepcard">
+    <div class="badge"><span class="num">✎</span><h2>怎麼開始寫部落格文章</h2></div>
+    <ol class="steps">
+      <li>打開你的 Sanity Studio（本機 <code>localhost:3333</code> 或部署後的網址）。</li>
+      <li>左側點 <b>文章</b> → 右上 <b>＋（建立新文件）</b>。</li>
+      <li>填 <b>標題</b> →「網址代稱 slug」按旁邊的 <b>Generate</b> 自動產生。</li>
+      <li>選 <b>分類標籤</b>（例：策略思維／申論寫作／心態調整，會顯示在卡片上）。</li>
+      <li>上傳 <b>封面圖</b>、寫 <b>摘要</b>、在 <b>內文</b> 用所見即所得編輯器打字、插圖、加粗、做標題。</li>
+      <li>右下角按 <b>Publish</b> 發佈。回首頁重新整理即可看到。</li>
+    </ol>
+    <ul class="plain" style="margin-top:14px">
+      <li>卡片預設只顯示 <b>最新 3 篇</b>（依發佈時間排序）。</li>
+      <li>想改顯示幾篇：在 <code>index.html</code> 把查詢字串的 <code>[0...3]</code> 改成例如 <code>[0...6]</code>。</li>
+      <li>想暫時隱藏某篇：在後台把它 <b>Unpublish</b> 即可，不必刪。</li>
+    </ul>
+    <div class="callout warn"><strong>關於點進去看全文：</strong>目前卡片只顯示標題與封面，<b>還沒有「單篇文章內頁」</b>。等你文章寫順了、想要點卡片開全文頁，再跟我說，我幫你做文章內頁並把卡片接上連結。</div>
+  </div>
+
+  <p class="foot">任何一步卡住（終端機報錯、CORS 設定、抓不到文章），把畫面截圖回來，我針對那步給你更細的指示。</p>
+
+</div>
+</main>
+
+</body>
+</html>

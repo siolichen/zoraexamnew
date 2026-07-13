@@ -162,9 +162,9 @@
 </footer>
 
 <script>
-// toc active
 const burger=document.getElementById('burger'), links=document.getElementById('navlinks');
 burger&&burger.addEventListener('click',()=>links.classList.toggle('open'));
+// toc active
 const tocLinks=[...document.querySelectorAll('.toc a')], secs=[...document.querySelectorAll('.doc section')];
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id; tocLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));}})},{rootMargin:'-20% 0px -70% 0px'});
 secs.forEach(s=>io.observe(s));

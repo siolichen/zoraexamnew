@@ -3,23 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>退費政策 ｜ 國考學姐 Zora</title>
+<title>退換貨政策 ｜ 國考學姐 Zora</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<meta name="description" content="國考學姐・高效上榜陪跑計畫退費政策。">
+<meta name="description" content="國考學姐・高效上榜陪跑計畫退換貨政策。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/home.css">
 <style>
-.brand__text{ font-family:var(--serif); font-weight:700; font-size:1.5rem; color:var(--green); letter-spacing:.02em; }
-.nav__cart{
-  flex:none; display:grid; place-items:center; width:46px; height:46px; border-radius:50%;
-  background:var(--coral); color:#fff; box-shadow:var(--sh-sm); transition:transform .2s, background .2s;
-}
-.nav__cart:hover{ transform:translateY(-2px) scale(1.05); background:var(--coral-deep); }
-.nav__cart svg{ width:22px; height:22px; }
-.nav .links{ position:static; transform:none; background:none; box-shadow:none; padding:0; flex-direction:row; }
-@media (max-width:860px){ .nav .links{ position:static !important; transform:none !important; } }
 .lhero{ background:var(--cream); padding:70px 0 40px; }
 .lhero .eyebrow{ font-family:var(--serif); font-weight:700; color:var(--coral-text); letter-spacing:.14em; font-size:.88rem; text-transform:uppercase; }
 .lhero h1{ color:var(--green); font-size:clamp(1.9rem,3.6vw,2.6rem); margin:14px 0 12px; }
@@ -58,7 +49,7 @@
 <section class="lhero">
   <div class="wrap">
     <span class="eyebrow">Refund Policy</span>
-    <h1>退費政策</h1>
+    <h1>退換貨政策</h1>
     <p>本政策說明「6 個月一對一國考高效上岸陪跑計畫」報名後之退款規則，適用於透過本站完成報名之學員。</p>
     <div><span class="updated">📅 最後更新：2026 年 7 月 5 日</span></div>
   </div>
@@ -66,6 +57,8 @@
 
 <div class="doc">
   <div class="wrap doc__inner">
+    <div class="draftnote"><b>📌 草稿提醒：</b>以下條款為初版範本，實際適用之退款期限、比例與條件，請學姐確認並修改後再正式上線。</div>
+
     <section>
       <h2><span class="num">01</span>服務性質說明</h2>
       <p>「6 個月一對一國考高效上岸陪跑計畫」為客製化之個人陪跑服務，內容依學員當下備考狀態量身安排，一經加入即投入專屬名額與時間安排，故退換貨條件與一般實體商品不同。</p>
@@ -110,13 +103,17 @@
         <a href="guide.html">穩定上岸指南</a>
         <a href="terms.html">服務條款</a>
         <a href="privacy.html">隱私權政策</a>
-        <a href="refund-policy.html">退費政策</a>
+        <a href="refund-policy.html">退換貨政策</a>
       </div>
     </div>
     <div class="footer__base">© 2026 國考學姐 Zora ・ 穩定上岸指南．All rights reserved.</div>
   </div>
 </footer>
 
-
+<script>
+var burger=document.getElementById('burger'), links=document.getElementById('links');
+burger.addEventListener('click',function(){links.classList.toggle('open'); burger.classList.toggle('on');});
+links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open'); burger.classList.remove('on');});});
+</script>
 </body>
 </html>
